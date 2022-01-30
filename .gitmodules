@@ -1,0 +1,3 @@
+[submodule "Splitter"]
+	path = Splitter
+	url = https://github.com/benedekrozemberczki/Splitter

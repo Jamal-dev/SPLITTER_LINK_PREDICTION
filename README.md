@@ -1,4 +1,4 @@
-# SPLITTER_LINK_PREDICTION
+# SPLITTER LINK PREDICTION
 
 # Run Node2Vec
 In the Link_Prediction folder:

@@ -1,3 +1,6 @@
 [submodule "Splitter"]
 	path = Splitter
 	url = https://github.com/benedekrozemberczki/Splitter
+[submodule "asymproj_edge_dnn_tensorFlow2"]
+	path = asymproj_edge_dnn_tensorFlow2
+	url = https://github.com/Jamal-dev/asymproj_edge_dnn_tensorFlow2.git

@@ -12,6 +12,7 @@ import os
 from subprocess import call
 import json
 from csv import DictWriter
+import argparse
 
 def if_not_exists(filename,train,test,embed_dim):
     """
@@ -104,6 +105,24 @@ def append_result(result):
             dictwriter_object.writerow(result)
             # Close the file object
             f_object.close()
+def check_args():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--dataset_name", type=str, help="Please enter the dataset name. For the corresponding name it should have directory in datasets_pp/original/dataset_name, and this directory must contain train and test files",
+                        nargs='?', default="CA-AstroPh", const="CA-AstroPh")
+    parser.add_argument("--embed_dim", type=int, help="Plese enter the dimension for embedding",
+                        nargs='?', default=32, const=32)
+    parser.add_argument("--random_state", type=int, help="Plese enter the random state",
+                        nargs='?', default=42, const=42)
+
+    args = parser.parse_args()
+    dataset_name = args.dataset_name
+    embed_dim = args.embed_dim
+    global random_state
+    random_state = args.random_state
+    
+    
+    return dataset_name, embed_dim
+
 
 """
     Splitter Methods
@@ -194,10 +213,6 @@ def main(dataset_name,embed_dim):
 
 
 if __name__=="__main__":
-    dataset_name = "CA-AstroPh"
-    # dataset_name = 'CA-HepTh'
-    embed_dim = 32
-    global random_state
-    random_state = 42
+    dataset_name, embed_dim = check_args()
     main(dataset_name,embed_dim)
     

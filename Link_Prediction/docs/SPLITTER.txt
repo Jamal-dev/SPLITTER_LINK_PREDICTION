@@ -1,0 +1,33 @@
+for each dataset, in accordance with the standard methodology used in the literature [2,25] we use the largest weakly connected component of the original graph.
+brief about dataset split:
+1. the input graph is split into two edge sets, Etrain and Etest of equal size.
+2. the test edges are removed uniformly at random!? with the restriction that they do not disconnect the graph.
+3. Etest is then used as positive examples for classification task.
+4. a corresponding equal sized set of non-existent random edges are generated to use as negative examples for testing.
+
+also link prediction is based on [2,25].
+
+evaluation is based on ROC-AUC for each method.
+
+
+non-embedding baselines:
+based on the analysis of adjacency matrix of graph
+these methods take into input Etrain during inference. => N(u) is the neighbours of u observed in Etrain
+for directed graphs N(u) only refers to the outgoing edges. (must be replaced in the formula of three methods!?)
+
+these methods are both applied to the original graph and persona graph.
+in persona graph:
+JC, CN, and AA of u,v in the persona graph is the maximum JC, CN, AA of a persona node of u and persona node of v.
+
+
+embedding baselines:
+only applied to persona graph!?
+
+how embedding of edge is calculated:
+node2vec -> binary classification logistic regression to learn a model over the hadamard product of the embeddings of the two nodes.
+splitter -> maximum dot product between any of their constituent personas in the persona graph.
+
+inference using SPLITTER embeddings:
+maximum dot product over all pairs of embeddings of u and v to predict the likelihood of the pair being connected. => so this means we have to chose a threshold and then calculate roc-auc!?
+
+

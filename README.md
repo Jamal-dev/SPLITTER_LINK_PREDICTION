@@ -22,6 +22,10 @@ git clone https://github.com/Jamal-dev/asymproj_edge_dnn_tensorFlow2.git
 Create first an environment in conda
 
 ```
+conda create --name splitter_link_pred --file requirements.txt
+```
+Or you can do it in 3 steps
+```
 conda create -n splitter_link_pred
 
 conda activate splitter_link_pred

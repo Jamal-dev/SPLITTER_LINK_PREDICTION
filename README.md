@@ -1,7 +1,7 @@
 # SPLITTER LINK PREDICTION
 ```
 git clone https://github.com/Jamal-dev/SPLITTER_LINK_PREDICTION.git
-<br />
+
 cd SPLITTER_LINK_PREDICTION
 
 ```
@@ -23,7 +23,7 @@ Create first an environment in conda
 
 ```
 conda create -n splitter_link_pred
-<br />
+
 conda activate splitter_link_pred
 
 ```

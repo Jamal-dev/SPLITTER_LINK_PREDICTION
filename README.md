@@ -6,13 +6,13 @@ cd SPLITTER_LINK_PREDICTION
 
 ```
 <br />
-Goto SPLITTER_LINK_PREDICTION folder if the SPLITER folder is empty then:
+Goto SPLITTER_LINK_PREDICTION:
 
 ```
 git clone https://github.com/Jamal-dev/Splitter.git
 
 ```
-Same with asymproj_edge_dnn_tensorFlow2 folder if it's empty:
+Same with asymproj_edge_dnn_tensorFlow2 folder:
 
 ```
 git clone https://github.com/Jamal-dev/asymproj_edge_dnn_tensorFlow2.git
@@ -30,11 +30,13 @@ conda create -n splitter_link_pred
 
 conda activate splitter_link_pred
 
+conda install pip
+
 ```
 Then you can install the requirements.txt file into the environemnt:
 
 ```
-pip install -i requirements.txt
+pip install -r requirements.txt
 
 ```
 # Run Node2Vec

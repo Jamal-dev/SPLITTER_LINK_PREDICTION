@@ -13,6 +13,8 @@ from subprocess import call
 import json
 from csv import DictWriter
 import argparse
+from tqdm import tqdm
+
 
 def if_not_exists(filename,train,test,embed_dim):
     """
@@ -24,12 +26,14 @@ def if_not_exists(filename,train,test,embed_dim):
     False if it already existed
     """
     if not os.path.exists(filename):
-        print(f"{filename} did not exit. Downloading has started ...")
-        create_embed(train,test,embed_dim)
-        print(f"{filename} has downloaded...")
-        return True
+        print(f"{filename} did not exit. Embedding has started by Splitter ...")
+        embeding_file_path, personas_json_file_path = create_embed(train,test,embed_dim)
+        print(f"{filename} Spiltter embeddings have been created...")
+        return True, embeding_file_path, personas_json_file_path
     print(f"{filename} is already there...")
-    return False
+    personas_json_file_path = f"datasets_pp/persona/{dataset_name}_{embed_dim}_personas.json"
+    embeding_file_path = f"datasets_pp/persona/{dataset_name}_{embed_dim}_embedding.csv"
+    return False, embeding_file_path, personas_json_file_path
 
 def mappedNodes_corresponding_originalNodes(map_og):
     org_nodes = set(map_og.values())
@@ -41,8 +45,8 @@ def mappedNodes_corresponding_originalNodes(map_og):
     return mappedNodes_fromOrg
 
 
-def load_embed(dataset_name):
-    with open(f"datasets_pp/persona/{dataset_name}_personas.json") as f:
+def load_embed(dataset_name,personas_json_file_path):
+    with open(personas_json_file_path) as f:
         data = json.loads(f.read())
     
     map_og = {}
@@ -55,24 +59,30 @@ def load_embed(dataset_name):
 
 def create_embed(train,test,embed_dim):
     data = np.concatenate([train,test],axis=0)
+    # saving edge file
     np.savetxt(f"../Splitter/input/{dataset_name}_{embed_dim}.csv", data.astype(int),  fmt='%i',delimiter=",")
     print(f'Training file for {dataset_name} has been and saved in Spliter/input')
     csv_name = f"{dataset_name}_{embed_dim}.csv" 
     emb_name = f"{dataset_name}_{embed_dim}_embedding.csv"
     pers_name = f"{dataset_name}_{embed_dim}_personas.json"
+    embeding_file_path = f"datasets_pp/persona/{emb_name}"
+    personas_file_path = f"datasets_pp/persona/{pers_name}"
+
     cmd_input = ["python", "../Splitter/src/main.py", 
         "--dimensions", str(embed_dim), 
             "--edge-path", f"../Splitter/input/{csv_name}",  
-         "--embedding-output-path", f"datasets_pp/persona/{emb_name}",  
-             "--persona-output-path", f"datasets_pp/persona/{pers_name}"]
+         "--embedding-output-path", embeding_file_path,  
+             "--persona-output-path", personas_file_path]
     call(cmd_input,timeout=None)
     print("Splitter embedding has been writen successfully!")
+    return embeding_file_path, personas_file_path
 
 def load_data(file_path,dataset_name,embed_dim):
+    # original dataset path
     path = f"datasets_pp/original/{dataset_name}"
     index, train, train_neg, test, test_neg = load_numpy_data(path)
-    if_not_exists(file_path,train,test,embed_dim)
-    return train, train_neg, test, test_neg
+    _,embeding_file_path, personas_json_file_path =if_not_exists(file_path,train,test,embed_dim)
+    return train, train_neg, test, test_neg, embeding_file_path, personas_json_file_path
     
 
 def graph_edge(data_train,data_train_ng,if_neg=True):
@@ -113,15 +123,18 @@ def check_args():
                         nargs='?', default=32, const=32)
     parser.add_argument("--random_state", type=int, help="Plese enter the random state",
                         nargs='?', default=42, const=42)
+    parser.add_argument("--all_exp", type=int, help="Enter non-zero value to run for all experiments on the dataset. Results will be saved in the Results folder",
+                        nargs='?', default=0, const=0)
 
     args = parser.parse_args()
     dataset_name = args.dataset_name
     embed_dim = args.embed_dim
     global random_state
     random_state = args.random_state
+    do_all_exp = args.all_exp
     
     
-    return dataset_name, embed_dim
+    return dataset_name, embed_dim, do_all_exp
 
 
 """
@@ -169,15 +182,15 @@ def splitter_edgeEmbedding(G,mappedNodes_fromOrg,df_emb):
 def main(dataset_name,embed_dim):
     
     
-    file_path = f"datasets_pp/persona/{dataset_name}_embedding.csv"
-    train, train_neg, test, test_neg = load_data(file_path,dataset_name,embed_dim)
+    file_path = f"datasets_pp/persona/{dataset_name}_embedding_{embed_dim}.csv"
+    train, train_neg, test, test_neg,embeding_file_path, personas_json_file_path = load_data(file_path,dataset_name,embed_dim)
     G_train,df_train =graph_edge(train,train_neg)
     G_test,df_test =graph_edge(test,test_neg)
     
-    df_emb = pd.read_csv(file_path)
+    df_emb = pd.read_csv(embeding_file_path)
 
     # Loading the Splitter embeddings
-    map_og = load_embed(dataset_name)
+    map_og = load_embed(dataset_name,personas_json_file_path)
     print("Splitter edge embedding have been loaded from json file")
 
     # Grouping personas nodes corresponding to the original nodes
@@ -208,11 +221,31 @@ def main(dataset_name,embed_dim):
     # saving the results
     result = {'Dataset Name':dataset_name,'Embedding Dimension':embed_dim,'ROC Train score':score_train,'ROC Test score':score_test}
     append_result(result)
-    print("Score has been appended")
+    print(f"Score has been appended for {dataset_name} for the embedding dimmension {embed_dim}")
+    return score_train, score_test
     
-
+def all_exp():
+    print('='*90)
+    print(" CA-AstroPh,"," Wiki-Vote,"," soc-Epinions will run. For embeddings sizes [8,16,32,64,128]")
+    print('='*90)
+    dataset_names =  ["CA-AstroPh","Wiki-Vote","soc-Epinions"]
+    dimensions = [8,16,32,64,128]
+    df_train = pd.DataFrame(columns=dataset_names, index=dimensions)
+    df_test = pd.DataFrame(columns=dataset_names, index=dimensions)
+    for dataset_name in tqdm(dataset_names):
+        for d in tqdm(dimensions):
+            score_train, score_test =main(dataset_name,d)
+            df_test[dataset_name][d] = score_test
+            df_train[dataset_name][d] = score_train
+            print("Train:\n",df_train)
+            print("Test:\n",df_test)
+    df_train.to_csv('Results/splitter_trainScore_edge_embed.csv')
+    df_test.to_csv('Results/splitter_testScore_edge_embed.csv')
 
 if __name__=="__main__":
-    dataset_name, embed_dim = check_args()
-    main(dataset_name,embed_dim)
+    dataset_name, embed_dim, do_all_exp = check_args()
+    if do_all_exp==0:
+        main(dataset_name,embed_dim)
+    else:
+        all_exp()
     

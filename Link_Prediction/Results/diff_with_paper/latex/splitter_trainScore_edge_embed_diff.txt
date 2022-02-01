@@ -1,0 +1,15 @@
+%Table for Splitter: train
+\begin{longtable}[]{@{}
+>{\raggedright\arraybackslash}p{2cm}
+>{\raggedright\arraybackslash}p{2cm}
+>{\raggedright\arraybackslash}p{2cm}@{}}
+\caption{Splitter results for the link prediction on the train edges \label{tab: Splitter-train-results}}\tabularnewline
+\toprule
+\endhead\makecell{Embedding \\ dimension} & Ca-astroph & Wiki-vote \\
+8 & \numS{-0.0714191866527632} & \numS{-0.1919304863966725} \\ 
+16 & \numS{-0.0508220164609053} & \numS{-0.1683921657613707} \\ 
+32 & \numS{-0.0360480572597136} & \numS{-0.1463158398048908} \\ 
+64 & \numS{-0.0295142566191445} & \numS{-0.1223000666562667} \\ 
+128 & \numS{-0.0305065989847715} & \numS{-0.0938671658553897} \\ 
+
+\bottomrule\end{longtable}

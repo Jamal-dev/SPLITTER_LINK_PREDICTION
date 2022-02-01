@@ -1,0 +1,17 @@
+%Table for Assymetric: test
+\begin{longtable}[]{@{}
+>{\raggedright\arraybackslash}p{2cm}
+>{\raggedright\arraybackslash}p{2cm}
+>{\raggedright\arraybackslash}p{2cm}
+>{\raggedright\arraybackslash}p{2cm}
+>{\raggedright\arraybackslash}p{2cm}@{}}
+\caption{Assymetric results for the link prediction on the test edges \label{tab: Assymetric-test-results}}\tabularnewline
+\toprule
+\endhead\makecell{Embedding \\ dimension} & Ca-hepth & Ca-astroph & Wiki-vote & Soc-epinions \\
+8 & \numS{-0.0125325699991339} & \numS{0.0525538538067263} & \numS{0.160803764051342} & \numS{0.0495987072781654} \\ 
+16 & \numS{-0.3259865560887265} & \numS{-0.1104573830233425} & \numS{0.0765728785871616} & \numS{0.0311025535825881} \\ 
+32 & \numS{-0.3235509472363337} & \numS{-0.3905106755262102} & \numS{-0.0281948360981361} & \numS{0.0141999063168872} \\ 
+64 & \numS{-0.330495049730585} & \numS{-0.396363362374438} & \numS{-0.0469785602557449} & \numS{0.0155992081923424} \\ 
+128 & \numS{-0.2918922336397572} & \numS{-0.3982077016408371} & \numS{-0.1229229729632793} & \numS{-0.0239086020001239} \\ 
+
+\bottomrule\end{longtable}

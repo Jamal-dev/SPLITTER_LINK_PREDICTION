@@ -1,0 +1,17 @@
+%Table for Assymetric: train
+\begin{longtable}[]{@{}
+>{\raggedright\arraybackslash}p{2cm}
+>{\raggedright\arraybackslash}p{2cm}
+>{\raggedright\arraybackslash}p{2cm}
+>{\raggedright\arraybackslash}p{2cm}
+>{\raggedright\arraybackslash}p{2cm}@{}}
+\caption{Assymetric results for the link prediction on the train edges \label{tab: Assymetric-train-results}}\tabularnewline
+\toprule
+\endhead\makecell{Embedding \\ dimension} & Ca-hepth & Ca-astroph & Wiki-vote & Soc-epinions \\
+8 & \numS{0.1979467122326662} & \numS{0.080478874024267} & \numS{0.2978762361696103} & \numS{0.0882061133741841} \\ 
+16 & \numS{-0.1397806335983503} & \numS{-0.0818827061712313} & \numS{0.2053024475915349} & \numS{0.0667871237296052} \\ 
+32 & \numS{-0.1409334098608055} & \numS{-0.3683569155230902} & \numS{0.0805617899460686} & \numS{0.0490743439387657} \\ 
+64 & \numS{-0.128737106649877} & \numS{-0.3750690779001688} & \numS{0.0693392325586112} & \numS{0.0550017340726505} \\ 
+128 & \numS{-0.0579456730398413} & \numS{-0.3773871155871064} & \numS{-0.0186565553741793} & \numS{0.0069219291323817} \\ 
+
+\bottomrule\end{longtable}

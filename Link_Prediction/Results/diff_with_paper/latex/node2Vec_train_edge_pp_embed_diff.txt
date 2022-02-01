@@ -1,0 +1,16 @@
+%Table for Node2vec: train
+\begin{longtable}[]{@{}
+>{\raggedright\arraybackslash}p{2cm}
+>{\raggedright\arraybackslash}p{2cm}
+>{\raggedright\arraybackslash}p{2cm}
+>{\raggedright\arraybackslash}p{2cm}@{}}
+\caption{Node2vec results for the link prediction on the train edges \label{tab: Node2vec-train-results}}\tabularnewline
+\toprule
+\endhead\makecell{Embedding \\ dimension} & Ca-astroph & Wiki-vote & Soc-epinions \\
+8 & \numS{-0.0967533908754624} & \numS{0.0662130637636081} & \numS{-0.065351724137931} \\ 
+16 & \numS{-0.0338523409363745} & \numS{0.0977492211838006} & \numS{0.0224449035812673} \\ 
+32 & \numS{-0.0155817575083426} & \numS{0.1908393135725428} & \numS{0.1058305322128852} \\ 
+64 & \numS{0.0052922912205566} & \numS{0.2258333333333333} & \numS{0.2179957081545065} \\ 
+128 & \numS{0.010944502617801} & \numS{0.2584183514774493} & \numS{0.3077698986975398} \\ 
+
+\bottomrule\end{longtable}

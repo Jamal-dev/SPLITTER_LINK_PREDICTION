@@ -233,7 +233,8 @@ def all_exp():
     print('='*90)
     print(" CA-AstroPh,"," Wiki-Vote,"," soc-Epinions will run. For embeddings sizes [8,16,32,64,128]")
     print('='*90)
-    dataset_names =  ["CA-AstroPh","Wiki-Vote","soc-Epinions"]
+    # dataset_names =  ["CA-AstroPh","Wiki-Vote","soc-Epinions"]
+    dataset_names =  ["soc-Epinions"]
     dimensions = [8,16,32,64,128]
     df_train = pd.DataFrame(columns=dataset_names, index=dimensions)
     df_test = pd.DataFrame(columns=dataset_names, index=dimensions)
@@ -244,8 +245,8 @@ def all_exp():
             df_train[dataset_name][d] = score_train
             print("Train:\n",df_train)
             print("Test:\n",df_test)
-    df_train.to_csv(Path(f'{file_runing_dir}/../Results/splitter_trainScore_edge_embed.csv'))
-    df_test.to_csv(Path(f'{file_runing_dir}/../Results/splitter_testScore_edge_embed.csv'))
+            df_train.to_csv(Path(f'{file_runing_dir}/../Results/splitter_trainScore_edge_embed_soc.csv'))
+            df_test.to_csv(Path(f'{file_runing_dir}/../Results/splitter_testScore_edge_embed_soc.csv'))
 
 if __name__=="__main__":
     dataset_name, embed_dim, do_all_exp = check_args()

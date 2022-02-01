@@ -11,8 +11,12 @@ import re
 from node2vec import Node2Vec
 # Embed edges using Hadamard method
 from node2vec.edges import HadamardEmbedder
+import os
+from pathlib import Path
+
+file_runing_dir = os.path.dirname(os.path.abspath(__file__))
 class node2vec_edgeEmb:
-    def __init__(self,p=1.0,q=1.0,dimensions=64,num_walks=10,walk_length=40,window_size=5,random_state=42,workers=1,path = 'datasets_pp/original/ca-hepth/'):
+    def __init__(self,p=1.0,q=1.0,dimensions=64,num_walks=10,walk_length=40,window_size=5,random_state=42,workers=1,path = Path(f'"{file_runing_dir}/../datasets_pp/original/ca-hepth/"')):
         self.p = p 
         self.q = q 
         self.dimensions = dimensions 
@@ -88,20 +92,24 @@ class node2vec_edgeEmb:
         return self.score_train,self.score_test, self.dataset_name
 
 def main():
-    folder_dir = "datasets_pp/original/"
+    folder_dir = Path(f'{file_runing_dir}/../datasets_pp/original')
     col_names = ["CA-HepTh","ca-AstroPh","ppi","soc-epinions","wiki-vote"]
-    dataset_dir = [folder_dir + c for c in col_names]
-    print(dataset_dir)
+    dataset_dir = [folder_dir / c for c in col_names]
+    
     
     dimensions = [8,16,32,64,128]
-    df = pd.DataFrame(columns=col_names, index=dimensions)
+    df_train = pd.DataFrame(columns=col_names, index=dimensions)
+    df_test = pd.DataFrame(columns=col_names, index=dimensions)
     for d_dir in dataset_dir:
         for d in dimensions:
             cl = node2vec_edgeEmb(path= d_dir, dimensions=d)
             train_score,test_score,name = cl.fit()
-            df[name][d] = test_score
-    print(df)
-    df.to_csv('Results/node2vec_edge_pp_embed.csv')
+            df_test[name][d] = test_score
+            df_train[name][d] = train_score
+    print("Train:\n",df_train)
+    print("Test:\n",df_test)
+    df_train.to_csv(f'"{file_runing_dir}/../Results/node2vec_edge_pp_embed_train.csv"')
+    df_test.to_csv(f'"{file_runing_dir}/../Results/node2vec_edge_pp_embed_test.csv"')
 
 
 if __name__=="__main__":

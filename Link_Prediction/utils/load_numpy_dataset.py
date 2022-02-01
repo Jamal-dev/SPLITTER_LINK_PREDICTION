@@ -8,7 +8,7 @@ import re
 def load_numpy_data(path):
     dataset_name = re.sub('\([\w]*\)','',str(path).split('/')[-1])
 
-    with open(f'{path}/index.pkl','rb') as f:
+    with open(f'{str(path)}/index.pkl','rb') as f:
         index = pickle.load(f)
     
     stat = []
@@ -19,10 +19,10 @@ def load_numpy_data(path):
 
     print('\n'.join(stat))
 
-    train = np.load(f'{path}/train.txt.npy')
-    train_neg = np.load(f'{path}/train.neg.txt.npy')
-    test = np.load(f'{path}/test.txt.npy')
-    test_neg = np.load(f'{path}/test.neg.txt.npy')
+    train = np.load(f'{str(path)}/train.txt.npy')
+    train_neg = np.load(f'{str(path)}/train.neg.txt.npy')
+    test = np.load(f'{str(path)}/test.txt.npy')
+    test_neg = np.load(f'{str(path)}/test.neg.txt.npy')
 
     return(index, train, train_neg, test, test_neg)
 

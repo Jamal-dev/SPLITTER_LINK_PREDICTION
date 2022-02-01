@@ -44,12 +44,13 @@ def main():
     else:
         testOrTrain = 'train'
     
-    header = r'%' + f'Table for {name}: {testOrTrain}' + '\n'
+    header = r'%' + f'Table for Relative difference {name}: {testOrTrain}' + '\n'
     header = header  + r'\begin{longtable}[]{@{}'
     for i in range(len_c):
         header = header + '\n'+r'>{\raggedright\arraybackslash}p{2cm}'
     header = header + '@{}}'
-    header = header + f'\n\caption{{{name} results for the link prediction on the {testOrTrain} edges \label{{tab: {name}-{testOrTrain}-results}}}}'
+    # header = header + f'\n\caption{{{name} results for the link prediction on the {testOrTrain} edges \label{{tab: {name}-{testOrTrain}-results}}}}'
+    header = header + f'\n\caption{{Results of the relative difference between {name} and the paper for the link prediction on the {testOrTrain} edges \label{{tab: rel{name}-{testOrTrain}-results}}}}'
     header = header + r"\tabularnewline"
     header = header + '\n' + r'\toprule' + '\n\endhead'
     for i,c in enumerate(df.columns):
@@ -68,7 +69,10 @@ def main():
                 body = body + '\\numS{' + str(r) + '}' + ' \\\\ \n'
             else:
                 if r == row[0]:
-                    body = body  + str(int(r))  + ' & '
+                    try:
+                        body = body  + str(int(r))  + ' & '
+                    except:
+                        body = body  + str(r)  + ' & '
                 else:
                     body = body + '\\numS{' + str(r) + '}' + ' & '
     fotter = '\n'+r'\bottomrule'

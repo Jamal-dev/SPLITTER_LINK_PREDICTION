@@ -1,0 +1,16 @@
+%Table Non-embedding: test
+\begin{longtable}[]{@{}
+>{\raggedright\arraybackslash}p{2cm}
+>{\raggedright\arraybackslash}p{2cm}
+>{\raggedright\arraybackslash}p{2cm}
+>{\raggedright\arraybackslash}p{2cm}
+>{\raggedright\arraybackslash}p{2cm}@{}}
+\caption{Results for the non-embedding coefficents for the link prediction on the test edges \label{tab: Non-embedding-test-results}}\tabularnewline
+\toprule
+\endhead\makecell{Datasets} & Dataset & Jc & Cn & Aa \\
+0 & \numS{Wiki-Vote} & \numS{0.712413473728691} & \numS{0.716188117004212} & \numS{0.713414169114481} \\ 
+1 & \numS{CA-HepTh} & \numS{0.729458546894985} & \numS{0.729593003175599} & \numS{0.729606729245497} \\ 
+2 & \numS{CA-AstroPh} & \numS{0.9361720695663} & \numS{0.936894504980678} & \numS{0.937318592433688} \\ 
+3 & \numS{Soc-Epinions} & \numS{0.673775885253458} & \numS{0.673825313046141} & \numS{0.669227870923603} \\ 
+
+\bottomrule\end{longtable}

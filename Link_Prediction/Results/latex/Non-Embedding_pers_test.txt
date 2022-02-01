@@ -1,0 +1,14 @@
+%Table for Non-embedding personas: test
+\begin{longtable}[]{@{}
+>{\raggedright\arraybackslash}p{2cm}
+>{\raggedright\arraybackslash}p{2cm}
+>{\raggedright\arraybackslash}p{2cm}
+>{\raggedright\arraybackslash}p{2cm}
+>{\raggedright\arraybackslash}p{2cm}@{}}
+\caption{Results for the non-embedding coefficents for the link prediction on the test edges \label{tab: Non-embedding-personas-test-results}}\tabularnewline
+\toprule
+\endhead\makecell{Dataset} & Dataset & Jc & Cn & Aa \\
+0 & \numS{Wiki-Vote} & \numS{0.7145116863057452} & \numS{0.7253081614272474} & \numS{0.7152214049513678} \\ 
+1 & \numS{CA-HepTh} & \numS{0.7599316893037158} & \numS{0.7602901923784114} & \numS{0.7603932024143513} \\ 
+
+\bottomrule\end{longtable}

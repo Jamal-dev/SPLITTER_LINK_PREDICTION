@@ -1,0 +1,13 @@
+%Table for Relative difference Non-embedding: test
+\begin{longtable}[]{@{}
+>{\raggedright\arraybackslash}p{2cm}
+>{\raggedright\arraybackslash}p{2cm}
+>{\raggedright\arraybackslash}p{2cm}
+>{\raggedright\arraybackslash}p{2cm}@{}}
+\caption{Results of the relative difference between Non-embedding and the paper for the link prediction on the test edges \label{tab: relNon-embedding-test-results}}\tabularnewline
+\toprule
+\endhead\makecell{Embedding \\ dimension} & Jc & Cn & Aa \\
+Wiki-Vote & \numS{-0.1691724577840171} & \numS{-0.1614934549974018} & \numS{-0.1741092321577739} \\ 
+CA-HepTh & \numS{0.3741983531712762} & \numS{0.3748466408289537} & \numS{0.3750329157583204} \\ 
+
+\bottomrule\end{longtable}

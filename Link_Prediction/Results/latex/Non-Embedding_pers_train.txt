@@ -1,0 +1,14 @@
+%Table for Non-embedding Personas: train
+\begin{longtable}[]{@{}
+>{\raggedright\arraybackslash}p{2cm}
+>{\raggedright\arraybackslash}p{2cm}
+>{\raggedright\arraybackslash}p{2cm}
+>{\raggedright\arraybackslash}p{2cm}
+>{\raggedright\arraybackslash}p{2cm}@{}}
+\caption{Results for the non-embedding coefficents for the link prediction on the train edges \label{tab: lNon-embedding-Personas-train-results}}\tabularnewline
+\toprule
+\endhead\makecell{Dataset} & Dataset & Jc & Cn & Aa \\
+0 & \numS{Wiki-Vote} & \numS{0.7111950713523438} & \numS{0.7221875669414979} & \numS{0.7143174519897662} \\ 
+1 & \numS{CA-HepTh} & \numS{0.7218751342009019} & \numS{0.72248960713016} & \numS{0.7223767551717948} \\ 
+
+\bottomrule\end{longtable}

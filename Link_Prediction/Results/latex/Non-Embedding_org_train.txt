@@ -1,0 +1,16 @@
+%Table Non-embedding: train
+\begin{longtable}[]{@{}
+>{\raggedright\arraybackslash}p{2cm}
+>{\raggedright\arraybackslash}p{2cm}
+>{\raggedright\arraybackslash}p{2cm}
+>{\raggedright\arraybackslash}p{2cm}
+>{\raggedright\arraybackslash}p{2cm}@{}}
+\caption{Results for the non-embedding coefficents for the link prediction on the train edges \label{tab: Non-embedding-train-results}}\tabularnewline
+\toprule
+\endhead\makecell{Datasets} & Dataset & Jc & Cn & Aa \\
+0 & \numS{Wiki-Vote} & \numS{0.694763251395952} & \numS{0.698029942424964} & \numS{0.694726867736269} \\ 
+1 & \numS{CA-HepTh} & \numS{0.681956831427742} & \numS{0.682076644234048} & \numS{0.68209169438095} \\ 
+2 & \numS{CA-AstroPh} & \numS{0.925703908114498} & \numS{0.926401730001476} & \numS{0.926815242777404} \\ 
+3 & \numS{Soc-Epinions} & \numS{0.606998642770244} & \numS{0.607036021062028} & \numS{0.604715778384029} \\ 
+
+\bottomrule\end{longtable}

@@ -1,9 +1,9 @@
-%Table for Splitter: test
+%Table for Relative difference Splitter: test
 \begin{longtable}[]{@{}
 >{\raggedright\arraybackslash}p{2cm}
 >{\raggedright\arraybackslash}p{2cm}
 >{\raggedright\arraybackslash}p{2cm}@{}}
-\caption{Splitter results for the link prediction on the test edges \label{tab: Splitter-test-results}}\tabularnewline
+\caption{Results of the relative difference between Splitter and the paper for the link prediction on the test edges \label{tab: relSplitter-test-results}}\tabularnewline
 \toprule
 \endhead\makecell{Embedding \\ dimension} & Ca-astroph & Wiki-vote \\
 8 & \numS{-0.0726193952033368} & \numS{-0.1976690848639937} \\ 

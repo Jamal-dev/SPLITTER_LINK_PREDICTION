@@ -1,11 +1,11 @@
-%Table for Assymetric: test
+%Table for Relative difference Asymmetric: test
 \begin{longtable}[]{@{}
 >{\raggedright\arraybackslash}p{2cm}
 >{\raggedright\arraybackslash}p{2cm}
 >{\raggedright\arraybackslash}p{2cm}
 >{\raggedright\arraybackslash}p{2cm}
 >{\raggedright\arraybackslash}p{2cm}@{}}
-\caption{Assymetric results for the link prediction on the test edges \label{tab: Assymetric-test-results}}\tabularnewline
+\caption{Results of the relative difference between Asymmetric and the paper for the link prediction on the test edges \label{tab: relAsymmetric-test-results}}\tabularnewline
 \toprule
 \endhead\makecell{Embedding \\ dimension} & Ca-hepth & Ca-astroph & Wiki-vote & Soc-epinions \\
 8 & \numS{-0.0125325699991339} & \numS{0.0525538538067263} & \numS{0.160803764051342} & \numS{0.0495987072781654} \\ 

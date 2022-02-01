@@ -1,11 +1,11 @@
-%Table for Assymetric: train
+%Table for Relative difference Asymmetric: train
 \begin{longtable}[]{@{}
 >{\raggedright\arraybackslash}p{2cm}
 >{\raggedright\arraybackslash}p{2cm}
 >{\raggedright\arraybackslash}p{2cm}
 >{\raggedright\arraybackslash}p{2cm}
 >{\raggedright\arraybackslash}p{2cm}@{}}
-\caption{Assymetric results for the link prediction on the train edges \label{tab: Assymetric-train-results}}\tabularnewline
+\caption{Results of the relative difference between Asymmetric and the paper for the link prediction on the train edges \label{tab: relAsymmetric-train-results}}\tabularnewline
 \toprule
 \endhead\makecell{Embedding \\ dimension} & Ca-hepth & Ca-astroph & Wiki-vote & Soc-epinions \\
 8 & \numS{0.1979467122326662} & \numS{0.080478874024267} & \numS{0.2978762361696103} & \numS{0.0882061133741841} \\ 

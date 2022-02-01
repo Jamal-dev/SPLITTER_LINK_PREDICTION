@@ -1,0 +1,13 @@
+%Table for Relative difference Non-embedding: train
+\begin{longtable}[]{@{}
+>{\raggedright\arraybackslash}p{2cm}
+>{\raggedright\arraybackslash}p{2cm}
+>{\raggedright\arraybackslash}p{2cm}
+>{\raggedright\arraybackslash}p{2cm}@{}}
+\caption{Results of the relative difference between Non-embedding and the paper for the link prediction on the train edges \label{tab: relNon-embedding-train-results}}\tabularnewline
+\toprule
+\endhead\makecell{Embedding \\ dimension} & Jc & Cn & Aa \\
+Wiki-Vote & \numS{-0.1730289867996002} & \numS{-0.1651010786803492} & \numS{-0.1751530577485379} \\ 
+CA-HepTh & \numS{0.3053799895133848} & \numS{0.3064911521341047} & \numS{0.3062870798766631} \\ 
+
+\bottomrule\end{longtable}

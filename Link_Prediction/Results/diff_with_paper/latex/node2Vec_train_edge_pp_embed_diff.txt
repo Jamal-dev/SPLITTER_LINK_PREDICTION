@@ -1,10 +1,10 @@
-%Table for Node2vec: train
+%Table for Relative difference Node2vec: train
 \begin{longtable}[]{@{}
 >{\raggedright\arraybackslash}p{2cm}
 >{\raggedright\arraybackslash}p{2cm}
 >{\raggedright\arraybackslash}p{2cm}
 >{\raggedright\arraybackslash}p{2cm}@{}}
-\caption{Node2vec results for the link prediction on the train edges \label{tab: Node2vec-train-results}}\tabularnewline
+\caption{Results of the relative difference between Node2vec and the paper for the link prediction on the train edges \label{tab: relNode2vec-train-results}}\tabularnewline
 \toprule
 \endhead\makecell{Embedding \\ dimension} & Ca-astroph & Wiki-vote & Soc-epinions \\
 8 & \numS{-0.0967533908754624} & \numS{0.0662130637636081} & \numS{-0.065351724137931} \\ 

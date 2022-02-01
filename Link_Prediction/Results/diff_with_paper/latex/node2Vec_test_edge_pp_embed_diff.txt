@@ -1,10 +1,10 @@
-%Table for Node2vec: test
+%Table for Relative difference Node2vec: test
 \begin{longtable}[]{@{}
 >{\raggedright\arraybackslash}p{2cm}
 >{\raggedright\arraybackslash}p{2cm}
 >{\raggedright\arraybackslash}p{2cm}
 >{\raggedright\arraybackslash}p{2cm}@{}}
-\caption{Node2vec results for the link prediction on the test edges \label{tab: Node2vec-test-results}}\tabularnewline
+\caption{Results of the relative difference between Node2vec and the paper for the link prediction on the test edges \label{tab: relNode2vec-test-results}}\tabularnewline
 \toprule
 \endhead\makecell{Embedding \\ dimension} & Ca-astroph & Wiki-vote & Soc-epinions \\
 8 & \numS{-0.0989469790382244} & \numS{0.0479626749611197} & \numS{-0.0985806896551723} \\ 

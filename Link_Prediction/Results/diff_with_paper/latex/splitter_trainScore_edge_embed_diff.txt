@@ -1,9 +1,9 @@
-%Table for Splitter: train
+%Table for Relative difference Splitter: train
 \begin{longtable}[]{@{}
 >{\raggedright\arraybackslash}p{2cm}
 >{\raggedright\arraybackslash}p{2cm}
 >{\raggedright\arraybackslash}p{2cm}@{}}
-\caption{Splitter results for the link prediction on the train edges \label{tab: Splitter-train-results}}\tabularnewline
+\caption{Results of the relative difference between Splitter and the paper for the link prediction on the train edges \label{tab: relSplitter-train-results}}\tabularnewline
 \toprule
 \endhead\makecell{Embedding \\ dimension} & Ca-astroph & Wiki-vote \\
 8 & \numS{-0.0714191866527632} & \numS{-0.1919304863966725} \\ 

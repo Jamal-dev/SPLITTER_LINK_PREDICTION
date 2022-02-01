@@ -17,7 +17,7 @@ from tqdm import tqdm
 
 file_runing_dir = os.path.dirname(os.path.abspath(__file__))
 class node2vec_edgeEmb:
-    def __init__(self,p=1.0,q=1.0,dimensions=64,num_walks=10,walk_length=40,window_size=5,random_state=42,workers=1,path = Path(f'"{file_runing_dir}/../datasets_pp/original/ca-hepth/"')):
+    def __init__(self,p=1.0,q=1.0,dimensions=64,num_walks=10,walk_length=40,window_size=5,random_state=42,workers=1,path = Path(f'{file_runing_dir}/../datasets_pp/original/ca-hepth/')):
         self.p = p 
         self.q = q 
         self.dimensions = dimensions 

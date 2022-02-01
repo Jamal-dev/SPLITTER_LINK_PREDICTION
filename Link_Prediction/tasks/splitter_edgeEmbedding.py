@@ -68,10 +68,10 @@ def create_embed(train,test,embed_dim,dataset_name):
     csv_name = f"{dataset_name}_{embed_dim}.csv" 
     emb_name = f"{dataset_name}_{embed_dim}_embedding.csv"
     pers_name = f"{dataset_name}_{embed_dim}_personas.json"
-    embeding_file_path = Path(f'"{file_runing_dir}/../datasets_pp/persona/{emb_name}"')
-    personas_file_path = Path(f'"{file_runing_dir}/../datasets_pp/persona/{pers_name}"')
-    splitter_run_path = Path(f'"{file_runing_dir}/../../Splitter/src/main.py"')
-    edge_file_path = Path(f'"{file_runing_dir}/../../Splitter/input/{csv_name}"')
+    embeding_file_path = Path(f'{file_runing_dir}/../datasets_pp/persona/{emb_name}')
+    personas_file_path = Path(f'{file_runing_dir}/../datasets_pp/persona/{pers_name}')
+    splitter_run_path = Path(f'{file_runing_dir}/../../Splitter/src/main.py')
+    edge_file_path = Path(f'{file_runing_dir}/../../Splitter/input/{csv_name}')
 
     cmd_input = ["python", str(splitter_run_path) , 
         "--dimensions", str(embed_dim), 
@@ -107,7 +107,7 @@ def graph_edge(data_train,data_train_ng,if_neg=True):
     return G,df
 def append_result(result):
     headersCSV = ['Dataset Name','Embedding Dimension','ROC Train score','ROC Test score']
-    filename = Path(f'"{file_runing_dir}/../Results/splitter_results.csv"')
+    filename = Path(f'{file_runing_dir}/../Results/splitter_results.csv')
     if not os.path.exists(filename):
         df = pd.DataFrame(columns=headersCSV,index = None)
         df.to_csv(filename, index = False) 
@@ -187,7 +187,7 @@ def splitter_edgeEmbedding(G,mappedNodes_fromOrg,df_emb):
 def main(dataset_name,embed_dim):
     
     
-    file_path = Path(f'"{file_runing_dir}/../datasets_pp/persona/{dataset_name}_embedding_{embed_dim}.csv"')
+    file_path = Path(f'{file_runing_dir}/../datasets_pp/persona/{dataset_name}_embedding_{embed_dim}.csv')
     train, train_neg, test, test_neg,embeding_file_path, personas_json_file_path = load_data(file_path,dataset_name,embed_dim)
     G_train,df_train =graph_edge(train,train_neg)
     G_test,df_test =graph_edge(test,test_neg)
@@ -244,8 +244,8 @@ def all_exp():
             df_train[dataset_name][d] = score_train
             print("Train:\n",df_train)
             print("Test:\n",df_test)
-    df_train.to_csv(Path(f'"{file_runing_dir}/../Results/splitter_trainScore_edge_embed.csv"'))
-    df_test.to_csv(Path(f'"{file_runing_dir}/../Results/splitter_testScore_edge_embed.csv"'))
+    df_train.to_csv(Path(f'{file_runing_dir}/../Results/splitter_trainScore_edge_embed.csv'))
+    df_test.to_csv(Path(f'{file_runing_dir}/../Results/splitter_testScore_edge_embed.csv'))
 
 if __name__=="__main__":
     dataset_name, embed_dim, do_all_exp = check_args()

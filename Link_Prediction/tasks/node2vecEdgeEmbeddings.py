@@ -13,6 +13,7 @@ from node2vec import Node2Vec
 from node2vec.edges import HadamardEmbedder
 import os
 from pathlib import Path
+from tqdm import tqdm
 
 file_runing_dir = os.path.dirname(os.path.abspath(__file__))
 class node2vec_edgeEmb:
@@ -93,15 +94,16 @@ class node2vec_edgeEmb:
 
 def main():
     folder_dir = Path(f'{file_runing_dir}/../datasets_pp/original')
-    col_names = ["CA-HepTh","ca-AstroPh","ppi","soc-epinions","wiki-vote"]
+    # col_names = ["CA-HepTh","ca-AstroPh","ppi","soc-epinions","wiki-vote"]
+    col_names = ["CA-AstroPh","Wiki-Vote","soc-Epinions"]
     dataset_dir = [folder_dir / c for c in col_names]
     
     
     dimensions = [8,16,32,64,128]
     df_train = pd.DataFrame(columns=col_names, index=dimensions)
     df_test = pd.DataFrame(columns=col_names, index=dimensions)
-    for d_dir in dataset_dir:
-        for d in dimensions:
+    for d_dir in tqdm(dataset_dir):
+        for d in tqdm(dimensions):
             cl = node2vec_edgeEmb(path= d_dir, dimensions=d)
             train_score,test_score,name = cl.fit()
             df_test[name][d] = test_score

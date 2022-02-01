@@ -73,18 +73,18 @@ def create_embed(train,test,embed_dim,dataset_name):
     splitter_run_path = Path(f'"{file_runing_dir}/../../Splitter/src/main.py"')
     edge_file_path = Path(f'"{file_runing_dir}/../../Splitter/input/{csv_name}"')
 
-    cmd_input = ["python",splitter_run_path , 
+    cmd_input = ["python", str(splitter_run_path) , 
         "--dimensions", str(embed_dim), 
-            "--edge-path", edge_file_path ,  
-         "--embedding-output-path", embeding_file_path,  
-             "--persona-output-path", personas_file_path]
+            "--edge-path", str(edge_file_path) ,  
+         "--embedding-output-path", str(embeding_file_path),  
+             "--persona-output-path", str(personas_file_path)]
     call(cmd_input,timeout=None)
     print("Splitter embedding has been writen successfully!")
     return embeding_file_path, personas_file_path
 
 def load_data(file_path,dataset_name,embed_dim):
     # original dataset path
-    path = Path(f'"{file_runing_dir}/../datasets_pp/original/{dataset_name}"')
+    path = Path(f'{file_runing_dir}/../datasets_pp/original/{dataset_name}')
     index, train, train_neg, test, test_neg = load_numpy_data(path)
     _,embeding_file_path, personas_json_file_path =if_not_exists(file_path,train,test,embed_dim,dataset_name)
     return train, train_neg, test, test_neg, embeding_file_path, personas_json_file_path

@@ -1,0 +1,15 @@
+%Table for Splitter test
+\begin{longtable}[]{@{}
+>{\raggedright\arraybackslash}p{2cm}
+>{\raggedright\arraybackslash}p{2cm}
+>{\raggedright\arraybackslash}p{2cm}@{}}
+\caption{Splitter results for the link prediction on the test edges \label{tab: Splitter-test-results}}\tabularnewline
+\toprule
+\endhead\makecell{Embedding dimension} & Ca-astroph & Wiki-vote \\
+8 & \numS{0.889358} & \numS{0.762214369379206} \\ 
+16 & \numS{0.922708} & \numS{0.784905997498561} \\ 
+32 & \numS{0.941685} & \numS{0.806843223283238} \\ 
+64 & \numS{0.951739} & \numS{0.82783744614957} \\ 
+128 & \numS{0.954195} & \numS{0.842617776101328} \\ 
+
+\bottomrule\end{longtable}

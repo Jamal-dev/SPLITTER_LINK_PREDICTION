@@ -110,8 +110,8 @@ def main():
             df_train[name][d] = train_score
     print("Train:\n",df_train)
     print("Test:\n",df_test)
-    df_train.to_csv(f'"{file_runing_dir}/../Results/node2vec_edge_pp_embed_train.csv"')
-    df_test.to_csv(f'"{file_runing_dir}/../Results/node2vec_edge_pp_embed_test.csv"')
+    df_train.to_csv(Path(f'{file_runing_dir}/../Results/node2vec_edge_pp_embed_train.csv'))
+    df_test.to_csv(Path(f'{file_runing_dir}/../Results/node2vec_edge_pp_embed_test.csv'))
 
 
 if __name__=="__main__":

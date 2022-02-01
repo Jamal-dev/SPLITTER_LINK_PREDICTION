@@ -1,0 +1,16 @@
+%Table for Node2vec
+\begin{longtable}[]{@{}
+>{\raggedright\arraybackslash}p{2cm}
+>{\raggedright\arraybackslash}p{2cm}
+>{\raggedright\arraybackslash}p{2cm}
+>{\raggedright\arraybackslash}p{2cm}@{}}
+\caption{Node2vec results for the link prediction on the test edges \label{tab: Node2vec-test-results}}\tabularnewline
+\toprule
+\endhead\makecell{Embedding dimension} & Ca-astroph & Wiki-vote & Soc-epinions \\
+8 & \numS{0.730754} & \numS{0.67384} & \numS{0.653529} \\ 
+16 & \numS{0.803438} & \numS{0.693544} & \numS{0.718787} \\ 
+32 & \numS{0.882836} & \numS{0.754859} & \numS{0.762724} \\ 
+64 & \numS{0.935721} & \numS{0.783447} & \numS{0.83073} \\ 
+128 & \numS{0.964062} & \numS{0.803607} & \numS{0.887091} \\ 
+
+\bottomrule\end{longtable}

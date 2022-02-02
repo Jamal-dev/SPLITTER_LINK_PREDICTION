@@ -60,3 +60,7 @@ If you want to run all experiments as in the paper
 python tasks/splitter_edgeEmbedding.py --all_exp 1
 
 ```
+
+We have tested the code for Unix system, but we haven't checked for the Windows system. However, in the tasks/node2vecEdgeEmbeddings.py and tasks/splitter_edgeEmbedding.py are tested for windows system as well.
+# Datasets
+You can download the datasets from https://snap.stanford.edu/data/. For splitting them into the train and test sets, we used the file create_dataset_arrays.py from asymproj_edge_dnn_tensorFlow2. All files of datasets could not be uploaded because of the 50MB limit of Github. Therefore, we suggest to split the datset by using create_dataset_arrays.py file first and then place them in the dataset_pp/original/{dataset_name}, and then run the code  

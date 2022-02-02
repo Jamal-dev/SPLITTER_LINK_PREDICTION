@@ -1,0 +1,6 @@
+python ../utils/create_dataset_arrays.py --input datasets_raw/original/CA-HepTh.txt --output datasets_pp/original/CA-HepTh;
+python ../utils/create_dataset_arrays.py --input datasets_raw/original/Wiki-Vote.txt --output datasets_pp/original/Wiki-Vote;
+python ../utils/create_dataset_arrays.py --input datasets_raw/original/CA-AstroPh.txt --output datasets_pp/original/CA-AstroPh;
+python ../utils/create_dataset_arrays.py --input datasets_raw/original/soc-Epinions1.txt --output datasets_pp/original/soc-Epinions
+
+
